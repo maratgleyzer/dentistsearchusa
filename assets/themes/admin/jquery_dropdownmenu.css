@@ -1,0 +1,57 @@
+/* menu styles */
+#jsddm{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	z-index: 950;
+}
+#jsddm li{
+	float: left;
+	list-style: none;
+	font: 11px Arial;
+	font-weight: bold;
+	position: relative;
+	margin-left: 40px;
+	margin-top: 10px;
+	color: #717070;
+	cursor: pointer;
+}
+#jsddm li a{
+	display: block;
+	text-decoration: none;
+	white-space: nowrap;
+	color: #717070;
+}
+#jsddm li a:hover{
+	/* hover style here */
+	color: black
+}
+#jsddm li ul{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	visibility: hidden;
+	top: 24px;
+	left: -10px;
+	background-image: url('../../../assets/images/admin/dropdownbg.png');
+	background-repeat: repeat-y;
+	width: 152px;
+}
+#jsddm li ul li{
+	float: none;
+	display: block;
+	margin: 0px;
+	font-weight: normal;
+}
+#jsddm li ul li a{
+	/* dropdown link style here*/
+	color: gray;
+	padding: 4px 12px;
+	min-width: 120px;
+	font-size: 11px;
+	width: auto;
+}
+#jsddm li ul li a:hover{	
+	/* dropdown link hover style here*/
+	color: black;
+}

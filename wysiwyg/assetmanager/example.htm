@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script>
+/***************************************
+	Required Functions
+***************************************/
+function modalDialogShow_IE(url,width,height) //IE
+	{
+	return window.showModalDialog(url,window,
+		"dialogWidth:"+width+"px;dialogHeight:"+height+"px;edge:Raised;center:Yes;help:No;Resizable:Yes;Maximize:Yes");
+	}
+function modalDialogShow_Moz(url,width,height) //Moz
+    {
+    var left = screen.availWidth/2 - width/2;
+    var top = screen.availHeight/2 - height/2;
+    activeModalWin = window.open(url, "", "width="+width+"px,height="+height+",left="+left+",top="+top);
+    window.onfocus = function(){if (activeModalWin.closed == false){activeModalWin.focus();};};
+    }
+var sActiveAssetInput;
+function setAssetValue(v) //required by the asset manager
+    {
+    document.getElementById(sActiveAssetInput).value = v;
+    }
+function openAsset(s)
+	{
+	sActiveAssetInput = s
+	if(navigator.appName.indexOf('Microsoft')!=-1)
+		document.getElementById(sActiveAssetInput).value=modalDialogShow_IE("assetmanager.asp",640,465); //IE	
+	else
+		modalDialogShow_Moz("assetmanager.asp",640,465); //Moz	
+	}
+/*****************************************/
+</script>
+</head>
+<body>
+
+<form id=Form1 action=# method=post>
+
+	<input type="text" name=inpURL id=inpURL size=50 value="">
+	<input type="button" value="Browse" onclick="openAsset('inpURL')">
+
+	<br><br>
+
+	<input type="text" name=inpURL2 id=inpURL2 size=50 value="">
+	<input type="button" value="Browse" onclick="openAsset('inpURL2')">
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+.pagination {
+            font-size: 80%;
+        }
+.pagination a:hover {
+	background-color: #BC0303;
+	color: white !important;
+	border: 1px solid #BC0303;
+}        
+.pagination a {
+	background-color: white;
+    border: 1px solid white;
+    color: black !important;
+    text-decoration: none;
+}
+
+.pagination a, .pagination span {
+	color: white;
+    margin-bottom: 5px;
+    margin-right: 3px;
+    min-width: 1em;
+    padding: 0 2px;
+    text-align: center;
+}
+
+.pagination .current {
+    background: none repeat scroll 0 0 #BC0303;
+    border: 1px solid #BC0303;
+    color: white;
+}
+
+.pagination .current.prev, .pagination .current.next{
+	color:#999;
+	border-color: white;
+	background:#fff;
+}

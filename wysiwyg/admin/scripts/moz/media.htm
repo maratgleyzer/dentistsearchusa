@@ -1,0 +1,338 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../style/editor.css" rel="stylesheet" type="text/css">
+<script>
+	var sLangDir=window.opener.oUtil.langDir;
+	document.write("<scr"+"ipt src='../language/"+sLangDir+"/media.js'></scr"+"ipt>");
+</script>
+<script>writeTitle()</script>
+<script>
+
+//reference to pop up window
+var activeModalWin;
+
+function GetElement(oElement,sMatchTag)
+    {
+    while (oElement!=null&&oElement.tagName!=sMatchTag)
+        {
+        if(oElement.tagName=="BODY")return null;
+        oElement=oElement.parentNode;
+        }
+    return oElement;
+    }
+
+function doWindowFocus()
+    {
+    window.opener.oUtil.onSelectionChanged=new Function("realTime()");
+    }
+    
+function bodyOnLoad()
+    {
+    window.onfocus=doWindowFocus;   
+    window.opener.oUtil.onSelectionChanged=new Function("realTime()");
+
+    if(window.opener.oUtil.obj.cmdAssetManager!="")
+        document.getElementById("btnAsset").style.display="block";
+    if(window.opener.oUtil.obj.cmdMediaManager!="")
+        document.getElementById("btnAsset").style.display="block";
+
+    realTime()
+    }
+    
+function openAsset()
+    {
+    if(window.opener.oUtil.obj.cmdAssetManager!="")
+		eval(window.opener.oUtil.obj.cmdAssetManager);
+	if(window.opener.oUtil.obj.cmdMediaManager!="")
+		eval(window.opener.oUtil.obj.cmdMediaManager);
+    }
+
+function setAssetValue(v) 
+    {
+    document.getElementById("inpURL").value = v;
+    }
+    
+function modalDialogShow(url,width,height)
+    {
+    if(url.indexOf("?")==-1) url=url+"?ffilter=media";//no querystring
+    else url=url+"&ffilter=media";
+
+    var left = screen.availWidth/2 - width/2;
+    var top = screen.availHeight/2 - height/2;
+    activeModalWin = window.open(url, "", "width="+width+"px,height="+height+",left="+left+",top="+top);
+    window.onfocus = function(){if (activeModalWin.closed == false){activeModalWin.focus();};};
+
+    //return window.showModalDialog(url,window,
+    //    "dialogWidth:"+width+"px;dialogHeight:"+height+"px;edge:Raised;center:Yes;help:No;Resizable:Yes;Maximize:Yes");
+    }
+    
+function realTime()
+    {
+    var oEditor=window.opener.oUtil.oEditor;
+    var oSel=oEditor.getSelection();
+
+    clearAllProperties()
+
+    var oEl = window.opener.getSelectedElement(oSel);    
+    oEl = GetElement(oEl, "EMBED")
+
+    if (oEl)
+        {       
+        document.getElementById("inpURL").value=oEl.src;
+        document.getElementById("inpWidth").value=oEl.width;
+        document.getElementById("inpHeight").value=oEl.height;
+        if(oEl.getAttribute("autoRewind")) document.getElementById("chkAutoRewind").checked=true;
+        else document.getElementById("chkAutoRewind").checked=false;
+        if(oEl.getAttribute("showDisplay")) document.getElementById("chkShowDisplay").checked=true;
+        else document.getElementById("chkShowDisplay").checked=false;
+        if(oEl.getAttribute("showStatusbar")) document.getElementById("chkShowStatusBar").checked=true;
+        else document.getElementById("chkShowStatusBar").checked=false;
+        if(oEl.getAttribute("showControls")) document.getElementById("chkShowControls").checked=true;
+        else document.getElementById("chkShowControls").checked=false;
+        if(oEl.getAttribute("autoStart")) document.getElementById("chkAutoStart").checked=true;
+        else document.getElementById("chkAutoStart").checked=false;
+        
+        document.getElementById("btnApply").style.display="block";
+        document.getElementById("btnOk").style.display="block";
+        document.getElementById("btnInsert").style.display="none";
+        }
+    else
+        {
+        document.getElementById("btnApply").style.display="none";
+        document.getElementById("btnOk").style.display="none";
+        document.getElementById("btnInsert").style.display="block";
+        }
+    }
+    
+function clearAllProperties()
+    {
+    document.getElementById("inpURL").value="";
+    document.getElementById("inpWidth").value="320";
+    document.getElementById("inpHeight").value="290";
+    document.getElementById("chkAutoStart").checked=true;
+    document.getElementById("chkShowControls").checked=true;
+    document.getElementById("chkShowStatusBar").checked=false;
+    document.getElementById("chkShowDisplay").checked=false;
+    document.getElementById("chkAutoRewind").checked=true;
+    }
+
+function insertMedia()
+    {
+    var oEditor=window.opener.oUtil.oEditor;
+    
+    window.opener.oUtil.obj.saveForUndo();
+    
+    if(document.getElementById("chkAutoStart").checked)sAutoStart="true";
+    else sAutoStart="false";
+    
+    if(document.getElementById("chkShowControls").checked)sShowControls="true";
+    else sShowControls="false";
+    
+    if(document.getElementById("chkShowStatusBar").checked)sShowStatusBar="true";
+    else sShowStatusBar="false";
+    
+    if(document.getElementById("chkShowDisplay").checked)sShowDisplay="true";
+    else sShowDisplay="false";
+    
+    if(document.getElementById("chkAutoRewind").checked)sAutoRewind="true";
+    else sAutoRewind="false";
+    
+    /*
+    var sHTML = "<object width='320' height='290' "+
+        "classid='"+inpCLassID.value+"'>"+ 
+        "<param name='Filename' value='"+inpURL.value+"'>"+
+        "<param name='AutoStart' value='"+sAutoStart+"'>"+
+        "<param name='ShowControls' value='"+sShowControls+"'>"+
+        "<param name='ShowStatusBar' value='"+sShowStatusBar+"'>"+
+        "<param name='ShowDisplay' value='"+sShowDisplay+"'>"+
+        "<param name='AutoRewind' value='"+sAutoRewind+"'>"+
+        "   <embed "+
+        "   type='application/x-mplayer2' "+
+        "   pluginspage='http://www.microsoft.com/Windows/Downloads/Contents/MediaPlayer/' "+
+        "   width='"+inpWidth.value+"' "+
+        "   height='"+inpHeight.value+"' "+
+        "   src='"+inpURL.value+"' "+
+        "   filename='"+inpURL.value+"' "+
+        "   autostart='"+sAutoStart+"' "+
+        "   showcontrols='"+sShowControls+"' "+
+        "   showstatusbar='"+sShowStatusBar+"' "+ 
+        "   showdisplay='"+sShowDisplay+"' "+
+        "   autorewind='"+sAutoRewind+"'>"+
+        "   </embed>"+ 
+        "</object>"*/
+        
+    var sHTML = "<embed selThis=\"selThis\" "+
+        "type='application/x-mplayer2' "+
+        "pluginspage='http://www.microsoft.com/Windows/Downloads/Contents/MediaPlayer/' "+
+        "width='"+document.getElementById("inpWidth").value+"' "+
+        "height='"+document.getElementById("inpHeight").value+"' "+
+        "src='"+document.getElementById("inpURL").value+"' "+
+        "filename='"+document.getElementById("inpURL").value+"' "+
+        "autostart='"+sAutoStart+"' "+
+        "showcontrols='"+sShowControls+"' "+
+        "showstatusbar='"+sShowStatusBar+"' "+ 
+        "showdisplay='"+sShowDisplay+"' "+
+        "autorewind='"+sAutoRewind+"'></embed>"
+    
+    var obj=window.opener.oUtil.obj;
+    obj.insertHTML(sHTML);
+    
+    var allEmb = oEditor.document.getElementsByTagName("EMBED");
+    for(var i=0;i<allEmb.length;i++)
+        {
+        if(allEmb[i].getAttribute("selThis")=="selThis")
+            {
+            allEmb[i].removeAttribute("selThis");               
+            var range = oEditor.document.createRange();
+            range.selectNode(allEmb[i]);
+            var oSelRange = oEditor.getSelection()
+            oSelRange.removeAllRanges();
+            oSelRange.addRange(range);
+            }
+        }
+    
+    realTime();
+    
+    window.opener.realTime(window.opener.oUtil.obj);
+    window.opener.oUtil.obj.selectElement(0);
+    }
+    
+function updateMedia()
+    {
+    var oEditor=window.opener.oUtil.oEditor;
+    var oSel=oEditor.getSelection();
+    
+    window.opener.oUtil.obj.saveForUndo();
+
+    var oEl = window.opener.getSelectedElement(oSel);
+    oEl = GetElement(oEl, "EMBED");
+    
+    if (oEl)
+        {
+        oEl.src=document.getElementById("inpURL").value;
+        oEl.width=document.getElementById("inpWidth").value;
+        oEl.height=document.getElementById("inpHeight").value;
+        
+        if(document.getElementById("chkAutoRewind").checked)oEl.setAttribute("autoRewind", "true");
+        else oEl.setAttribute("autoRewind", "false");
+        if(document.getElementById("chkShowDisplay").checked)oEl.setAttribute("showDisplay", "true");
+        else oEl.setAttribute("showDisplay", "false");
+        if(document.getElementById("chkShowStatusBar").checked)oEl.setAttribute("showStatusbar", "true");
+        else oEl.setAttribute("showStatusbar", "false");
+        if(document.getElementById("chkShowControls").checked)oEl.setAttribute("showControls", "true");
+        else oEl.setAttribute("showControls", "false");
+        if(document.getElementById("chkAutoStart").checked)oEl.setAttribute("autoStart", "true");
+        else oEl.setAttribute("autoStart", "false");
+        }
+    realTime()
+    window.focus();
+    }
+    
+</script>
+</head>
+<body onload="loadTxt();bodyOnLoad()" style="overflow:hidden;">
+
+<table width=100% height=100% align=center cellpadding=0 cellspacing=0>
+<tr>
+<td valign=top style="padding:5;height:100%">
+
+    <table cellpadding=2 cellspacing=0  style="width:100%">
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Source</span>:&nbsp;&nbsp;</td>
+        <td colspan="4" style="width:100%">
+            <table cellpadding="0" cellspacing="0" style="width:100%">
+            <tr>
+            <td style="width:100%"><input type="text" name=inpURL id=inpURL size=45 value="" style="width:100%" class="inpTxt"></td>
+            <td><input type="button" value="" onclick="openAsset()" id="btnAsset" name="btnAsset" style="display:none;background:url('openAsset.gif');width:20px;height:16px;border:#a5acb2 1px solid;margin-left:1px;"></td>
+            </tr>
+            </table>        
+        </td>
+    </tr>
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Width</span>:</td>
+        <td colspan="4"><input type="text" name="inpWidth" id="inpWidth" value=320 size=4 class="inpTxt"></td>
+    </tr>
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Height</span>:</td>
+        <td colspan="4"><input type="text" name="inpHeight" id="inpHeight" value=290 size=4 class="inpTxt"></td>
+    </tr>   
+    <!--
+    <tr>
+        <td colspan="5"><hr>
+        </td>
+    </tr>
+    <tr>
+        <td><span id="txtLang" name="txtLang">Class ID</span>:&nbsp;&nbsp;</td>
+        <td colspan="4">
+            <select name="inpCLassID">
+            <option value="CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95" selected>CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95</option>
+            <option value="CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6">CLSID:6BF52A52-394A-11D3-B153-00C04F79FAA6</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" height="7px">
+        </td>
+    </tr>-->
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Auto Start</span>:</td>
+        <td>
+        <input type="checkbox" name="chkAutoStart" id="chkAutoStart" class="inpChk" checked>
+        </td>
+        <td colspan="3" rowspan="5">
+            &nbsp;
+        </td>
+    </tr>   
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Show Controls</span>:</td>
+        <td nowrap>
+        <input type="checkbox" name="chkShowControls" id="chkShowControls" class="inpChk" checked>
+        </td>
+    </tr>   
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Show Status Bar</span>:</td>
+        <td nowrap>
+        <input type="checkbox" name="chkShowStatusBar" id="chkShowStatusBar" class="inpChk">
+        </td>
+    </tr>
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Show Display</span>:</td>
+        <td nowrap>
+        <input type="checkbox" name="chkShowDisplay" id="chkShowDisplay" class="inpChk">
+        </td>
+    </tr>
+    <tr>
+        <td nowrap><span id="txtLang" name="txtLang">Auto Rewind</span>:</td>
+        <td nowrap>
+        <input type="checkbox" name="chkAutoRewind" id="chkAutoRewind" class="inpChk" checked>
+        </td>
+    </tr>
+    </table>
+    
+</td>
+</tr>
+<tr>
+<td class="dialogFooter" style="padding:6px;" align="right">
+    <table cellpadding=1 cellspacing=0>
+    <tr>
+    <td>
+    <input type="button" name=btnCancel id=btnCancel value="cancel" onclick="self.close()" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+    </td>
+    <td>
+    <input type="button" name=btnInsert id=btnInsert value="insert" onclick="insertMedia();self.close()" style="display:block" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+    </td>
+    <td>    
+    <input type="button" name=btnApply id=btnApply value="apply" onclick="updateMedia()" style="display:none" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+    </td>
+    <td>    
+    <input type="button" name=btnOk id=btnOk value=" ok " onclick="updateMedia();self.close()" style="display:none;" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">  
+    </td>
+    </tr>
+    </table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../style/editor.css" rel="stylesheet" type="text/css">
+<script>
+	var sLangDir=window.opener.sLangDir;
+	document.write("<scr"+"ipt src='../language/"+sLangDir+"/url.js'></scr"+"ipt>");
+</script>
+<script>writeTitle()</script>
+<script>
+//reference to pop up window
+var activeModalWin;
+
+function bodyOnLoad()
+    {
+    if(window.opener.opener.oUtil.obj.cmdAssetManager!="")document.getElementById("btnAsset").style.display="block";
+    }
+    
+function openAsset()
+    {
+    eval(window.opener.opener.oUtil.obj.cmdAssetManager); 
+    }
+    
+function setAssetValue(v) 
+    {
+    document.getElementById("inpValue").value = v;
+    }
+    
+function modalDialogShow(url,width,height)
+    {
+    if(url.indexOf("?")==-1) url=url+"?ffilter=image";//no querystring
+    else url=url+"&ffilter=image";
+    
+    var left = screen.availWidth/2 - width/2;
+    var top = screen.availHeight/2 - height/2;
+    activeModalWin = window.open(url, "", "width="+width+"px,height="+height+",left="+left+",top="+top);
+    window.onfocus = function(){if (activeModalWin.closed == false){activeModalWin.focus();};};
+        
+    }
+    
+function doApply()
+    {
+    window.opener.setDialogValue(document.getElementById("inpType").value+document.getElementById("inpValue").value);
+    }
+    
+</script>
+</head>
+<body onload="loadTxt();bodyOnLoad()" style="margin:0;overflow:hidden">
+
+<table width=100% height=100% align=center cellpadding=0 cellspacing=1>
+<tr>
+<td valign=top style="padding:5px;padding-right:0;height:100%">
+<select ID="inpType" NAME="inpType" class="inpSel">
+    <option value=""></option>
+    <option value="http://">http://</option>
+    <option value="https://">https://</option>
+</select>
+</td>
+<td valign=top style="padding:5px;padding-left:0;width:100%">
+    <table cellpadding="0" cellspacing="0" style="width:100%">
+    <tr>
+    <td style="width:100%">
+    <input type="text" id="inpValue" name="inpValue" style="width:100%">
+    </td>
+    <td><input type="button" value="" onclick="openAsset()" id="btnAsset" name="btnAsset" style="display:none;background:url('openAsset.gif');width:20px;height:16px;border:#a5acb2 1px solid;margin-left:1px;"></td>
+    </tr>
+    </table>    
+</td>
+</tr>
+<tr>
+<td class="dialogFooter" colspan=2 style="padding:6px;" align="right">
+    <input type=button name=btnCancel id=btnCancel value="cancel" onclick="self.close()" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+    <input type=button name=btnOk id=btnOk value=" ok " onclick="doApply();self.close()" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+</td>
+</tr>
+</table>
+
+
+
+</body>
+</html>

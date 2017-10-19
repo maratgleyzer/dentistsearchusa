@@ -1,0 +1,258 @@
+[10-Mar-2011 02:53:30] PHP Warning:  getimagesize(http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 1070
+[10-Mar-2011 02:53:30] PHP Fatal error:  Uncaught exception 'Exception' with message 'Could not determine format of remote image: http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1077): ThumbBase->triggerError('Could not deter...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 02:53:50] PHP Warning:  getimagesize(http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 1070
+[10-Mar-2011 02:53:50] PHP Fatal error:  Uncaught exception 'Exception' with message 'Could not determine format of remote image: http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1077): ThumbBase->triggerError('Could not deter...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 02:56:15] PHP Warning:  getimagesize(http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 1070
+[10-Mar-2011 02:56:15] PHP Fatal error:  Uncaught exception 'Exception' with message 'Could not determine format of remote image: http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1077): ThumbBase->triggerError('Could not deter...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 02:56:49] PHP Warning:  getimagesize(http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: HTTP request failed! HTTP/1.1 404 Not Found
+ in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 1070
+[10-Mar-2011 02:56:49] PHP Fatal error:  Uncaught exception 'Exception' with message 'Could not determine format of remote image: http://www.dentistsearchusa.com/user_assets/prof_images/extracted/778-dentist.jpg' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1077): ThumbBase->triggerError('Could not deter...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 03:41:48] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 2912 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 03:41:48] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 2550 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 03:41:59] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 2912 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 03:45:53] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 03:46:00] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 9344 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 03:55:36] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 03:55:43] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 9344 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 03:59:10] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 03:59:10] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 9344 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 04:00:34] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 9344 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 04:09:35] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 9344 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 04:09:42] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 9344 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 04:10:00] PHP Fatal error:  Allowed memory size of 33554432 bytes exhausted (tried to allocate 9344 bytes) in /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php on line 111
+[10-Mar-2011 04:14:53] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:14:54] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:15:11] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:15:11] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:15:13] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:15:20] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:15:43] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:15:54] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:17:42] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:18:09] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:18:33] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:18:44] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:19:03] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:19:18] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:19:43] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:19:58] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:28:40] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:28:43] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:31:26] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:31:35] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:33:17] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:39:16] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193
+[10-Mar-2011 04:43:32] PHP Fatal error:  Uncaught exception 'Exception' with message 'Image format not supported: image/bmp' in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php:193
+Stack trace:
+#0 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(1102): ThumbBase->triggerError('Image format no...')
+#1 /home/dentists/public_html/assets/phpthumb/GdThumb.inc.php(98): GdThumb->determineFormat()
+#2 /home/dentists/public_html/assets/phpthumb/ThumbLib.inc.php(127): GdThumb->__construct('http://www.dent...', Array, false)
+#3 /home/dentists/public_html/assets/phpthumb/resize.php(27): PhpThumbFactory::create('http://www.dent...')
+#4 {main}
+  thrown in /home/dentists/public_html/assets/phpthumb/ThumbBase.inc.php on line 193

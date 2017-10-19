@@ -1,0 +1,28 @@
+.post-list ul li{
+	display:inline;
+	zoom:1;
+}
+.two-columns .aside .info strong{
+	float:left;
+	margin-top: expression(this.parentNode.offsetHeight > this.offsetHeight  ? ((this.parentNode.offsetHeight-this.offsetHeight)/2 - 6 + "px") : "0");
+}
+.lbox{
+	background-position:-9999px -9999px;
+	filter: progid:dximagetransform.microsoft.alphaimageloader(src='/assets/themes/default/images/bg-light-box-t.png', sizingmethod='crop')
+}
+.lbox-b{
+	background-position:-9999px -9999px;
+	filter: progid:dximagetransform.microsoft.alphaimageloader(src='/assets/themes/default/images/bg-light-box-b.png', sizingmethod='crop')
+}
+.ico01{
+	background-position:-9999px -9999px;
+	filter: progid:dximagetransform.microsoft.alphaimageloader(src='/assets/themes/default/images/ico01.png', sizingmethod='crop')
+}
+.ico02{
+	background-position:-9999px -9999px;
+	filter: progid:dximagetransform.microsoft.alphaimageloader(src='/assets/themes/default/images/ico02.png', sizingmethod='crop')
+}
+.ico03{
+	background-position:-9999px -9999px;
+	filter: progid:dximagetransform.microsoft.alphaimageloader(src='/assets/themes/default/images/ico03.png', sizingmethod='crop')
+}

@@ -1,0 +1,261 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../style/editor.css" rel="stylesheet" type="text/css">
+<script>
+	var sLangDir=window.opener.oUtil.langDir;
+	document.write("<scr"+"ipt src='../language/"+sLangDir+"/source_html.js'></scr"+"ipt>");
+</script>
+<script>writeTitle()</script>
+<script>
+
+var iconOffsetTop = -75;
+
+function init() 
+	{
+	var idSource = document.getElementById("idSource").contentWindow;
+	var doc = idSource.document;
+	doc.open();
+	doc.write("<html><head><head><body></body></html>");
+	doc.close();
+	}
+	
+function doCmd(sCmd,sOption)
+    {
+    var idSource = document.getElementById("idSource").contentWindow;
+    idSource.document.execCommand(sCmd, false, sOption);
+    }
+    
+function jsReplace(sText, sFind, sReplace)
+    {
+    var arrTmp = sText.split(sFind);
+    if (arrTmp.length > 1) sText = arrTmp.join(sReplace);
+    return sText;
+    }
+    
+var sBodyHeader;
+var sBodyFooter;
+var sBodyTag;
+
+function bodyOnLoad()
+    {
+    var oEditor=window.opener.oUtil.oEditor;
+    var obj = window.opener.oUtil.obj;
+    
+    var sHTML="";
+    sHTML=window.opener.getOuterHTML(oEditor.document.documentElement);
+    sHTML=jsReplace(sHTML," designMode=on","");
+    sHTML = sHTML.replace(/>\s+</gi, "><"); //replace space between tag
+    sHTML = sHTML.replace(/\r/gi, ""); //replace space between tag
+    sHTML = sHTML.replace(/(<br>)\s+/gi, "$1"); //replace space between BR and text
+    
+    if(obj.docType!="") sHTML=obj.docType+"\n"+sHTML;//restore doctype (if any)
+    
+    var idSource = document.getElementById("idSource").contentWindow;
+    var sourceDocBody = idSource.document.body;
+    
+    //remove all child
+    sourceDocBody.innerHTML = "";
+    sourceDocBody.appendChild(document.createTextNode(sHTML));
+    
+    sourceDocBody.style.cssText="overflow-x:scroll;overflow-y:scroll;white-space:nowrap";
+    sourceDocBody.clearAttributes;
+    sourceDocBody.style.marginTop='4px';
+    sourceDocBody.style.marginLeft='10px';
+    sourceDocBody.style.fontFamily='Tahoma';
+    sourceDocBody.style.fontSize='11px';
+    sourceDocBody.style.color='black';
+    sourceDocBody.style.background='white';
+    //idSource.document.addEventListener("keydown", new Function("doKeyPress(arguments[0])"), false);
+
+    doWrap()
+
+    idSource.document.designMode="on";
+    idSource.focus();    
+    }
+    
+function doKeyPress(evt)
+    {
+    /*
+    if (evt.keyCode==13)
+        {
+        var thisSel = document.selection.createRange();
+        thisSel.pasteHTML('<br>');
+        evt.cancelBubble = true;
+        evt.returnValue = false;
+        thisSel.select();
+        thisSel.moveEnd("character", 1);
+        thisSel.moveStart("character", 1);
+        thisSel.collapse(false);
+        return false;
+        idSource.focus();
+        }
+    if (evt.ctrlKey)
+        {
+        if(evt.keyCode==65)doCmd("SelectAll");
+        }*/
+    }
+    
+function doUpdate()
+    {
+    window.opener.oUtil.obj.saveForUndo();
+
+    var idSource = document.getElementById("idSource").contentWindow;
+    var range = idSource.document.body.ownerDocument.createRange();
+    range.selectNodeContents(idSource.document.body);
+
+    var obj = window.opener.oUtil.obj;
+    obj.putHTML(range.toString());//tdk menggunakan loadHTML() krn loadHTML() hanya utk first load.
+    }
+
+function doWrap()
+    {
+    var inpWrap = document.getElementById("inpWrap");
+    
+    if(inpWrap.checked==true)
+        {
+        //Wrap Text
+        idSource.document.body.style.whiteSpace="normal";
+        }
+    else
+        {
+        idSource.document.body.style.whiteSpace="nowrap";
+        }
+    }
+
+//*******************
+var buttonArrays=new Object();
+
+function writeIconStandard(id,command,img,title)
+    {
+    var obj = window.opener.oUtil.obj;
+    var w=obj.iconWidth;
+    var h=obj.iconHeight;
+    var imgPath=obj.iconPath+img;
+    var sHTML=""+
+        "<td unselectable='on' style='padding-right:1px;VERTICAL-ALIGN: top;margin-left:0;margin-right:1px;margin-bottom:1px;width:"+w+"px;height:"+h+"px;'>"+
+        "<span unselectable='on' style='position:absolute;clip: rect(0 "+w+"px "+h+"px 0)'>"+
+        "<img name=\""+id+"\" id=\""+id+"\" unselectable='on' src='"+imgPath+"' style='position:absolute;top:"+iconOffsetTop+"px;width:"+w+"px'"+
+        "onmouseover='doOver(this)' "+
+        "onmouseout='doOut(this)' "+
+        "onmousedown='doDown(this)' "+
+        "onmouseup=\"if(doUp(this)){"+command+"}\" alt=\""+title+"\">"+
+        "</span></td>";
+    sHTML="<table align=left cellpadding=0 cellspacing=0 style='table-layout:fixed;'><tr>"+sHTML+"</tr></table>";
+    buttonArrays[id] = ["inactive"];
+    return sHTML;
+    }
+    
+function writeBreakSpace()
+    {
+    var obj = window.opener.oUtil.obj;
+    var w=obj.iconWidth;
+    var h=obj.iconHeight;
+    var imgPath=obj.iconPath+"brkspace.gif";
+    var sHTML=""+
+        "<td unselectable='on' style='padding-left:0px;padding-right:0px;VERTICAL-ALIGN:top;margin-bottom:1px;width:5px;height:"+h+"px;'>"+
+        "<img unselectable='on' src='"+imgPath+"'></td>";
+    sHTML="<table align=left cellpadding=0 cellspacing=0 style='table-layout:fixed;'><tr>"+sHTML+"</tr></table>";
+    return sHTML;
+    }
+    
+function setupToolbar()
+    {
+    var obj = window.opener.oUtil.obj;
+    var imgPath=obj.iconPath+"bg.gif";
+    
+    var sHTMLIcons="";
+    sHTMLIcons+=writeIconStandard("btnUndo","doCmd('Undo')","btnUndo.gif",getTxt("Undo"));
+    sHTMLIcons+=writeIconStandard("btnRedo","doCmd('Redo')","btnRedo.gif",getTxt("Redo"));
+	sHTMLIcons+=writeBreakSpace();
+	sHTMLIcons+=writeIconStandard("btnSearch","modelessDialogShow('search2.htm',375,163)","btnSearch.gif",getTxt("Search"));
+    sHTML="<table border=0 cellpadding=0 cellspacing=0 width='100%'>"+
+        "<tr><td style=\"padding-left:1px;padding-bottom:2px\">"+
+        "<table cellpadding=0 cellspacing=0 width=100%><tr><td dir=ltr style=\"background:url('"+imgPath+"')\">"+
+        sHTMLIcons+
+        "</td></tr></table>"+
+        "</td></tr></table>";
+    document.getElementById("idToolbar").innerHTML=sHTML;
+    }
+    
+function doOver(btn)
+    {
+    btnArr=buttonArrays[btn.id];
+    if(btnArr[0]=="inactive")btn.style.top=(-25+iconOffsetTop)+"px";//no.2
+    }
+function doDown(btn)
+    {
+    btnArr=buttonArrays[btn.id];
+    if(btnArr[0]!="disabled")btn.style.top=(-50+iconOffsetTop)+"px";//no.3
+    }
+var bCancel=false;
+function doOut(btn)
+    {
+    if(btn.style.top==((-50+iconOffsetTop)+"px"))
+        {
+        //lagi pushed tapi mouseout (cancel)
+        bCancel=true;
+        }
+
+    btnArr=buttonArrays[btn.id];
+    if(btnArr[0]=="active")btn.style.top=(-75+iconOffsetTop)+"px";//no.4 (remain active/pushed)
+    if(btnArr[0]=="inactive")btn.style.top=(0+iconOffsetTop)+"px";//no.1 (remain inactive)
+    }
+function doUp(btn)//return true/false
+    {
+    if(bCancel)
+        {
+        //lagi pushed tapi mouseout (cancel)
+        bCancel=false;btn.style.top=(0+iconOffsetTop)+"px";
+        return false;
+        }
+    btnArr=buttonArrays[btn.id];
+    if(btnArr[0]=="disabled") return false;
+    btn.style.top=(-25+iconOffsetTop)+"px";//no.2
+    return true;
+    }
+//*******************
+
+function modelessDialogShow(url,width,height)
+    {
+    var left = screen.availWidth/2 - width/2;
+    var top = screen.availHeight/2 - height/2;
+    window.open(url, "", "dependent=yes,width="+width+"px,height="+height+",left="+left+",top="+top);
+    }
+    
+</script>
+</head>
+<body onload="setupToolbar();loadTxt();init();bodyOnLoad()" style="overflow:hidden;margin:0;background: #f4f4f4;">
+
+<table width="100%" height="100%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td id="idToolbar">
+
+</td>
+</tr>
+<td style="height:100%">
+    <iframe style="width:100%;height:100%;" name="idSource" id="idSource" contentEditable="true"></iframe>
+</td>
+</tr>
+<tr>
+<td class="dialogFooter" style="padding:13;padding-top:7;padding-bottom:7;" align="right" valign="right">
+    <table cellpadding=1 cellspacing=0>
+    <td width=100%>
+        &nbsp;<input type="checkbox" ID="inpWrap" NAME="inpWrap" class="inpChk" onclick="doWrap()" checked> <span id="txtLang" name="txtLang">Wrap Text</span>
+    </td>
+    <td>
+        <input type="button" id="btnCancel" name="btnCancel" value="cancel" onclick="self.close()" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+    </td>
+    <td>
+        <input type="button" id="btnApply" name="btnApply" value="apply" onclick="doUpdate();bodyOnLoad()" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+    </td>
+    <td>
+        <input type="button" id="btnOk" name="btnOk" value="ok" onclick="doUpdate();self.close()" class="inpBtn" onmouseover="this.className='inpBtnOver';" onmouseout="this.className='inpBtnOut'">
+    </td>
+    </table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
